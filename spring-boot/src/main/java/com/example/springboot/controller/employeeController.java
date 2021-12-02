@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.employeeDTO;
 import com.example.springboot.model.employee;
 import com.example.springboot.service.employeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class employeeController
 
     // build create employee REST API
     @PostMapping()
-    public ResponseEntity<employee> saveemployee(@RequestBody employee employees){
-        return new ResponseEntity<employee>(employeeService.saveemployee(employees), HttpStatus.CREATED);
+    public ResponseEntity<employee> saveemployee(@RequestBody employeeDTO employeesDTO){
+        return new ResponseEntity<employee>(employeeService.saveemployee(employeesDTO), HttpStatus.CREATED);
     }
 
     // build get all employees REST API
@@ -38,8 +39,8 @@ public class employeeController
     // http://localhost:8080/api/employees/1
     @PutMapping("{id}")
     public ResponseEntity<employee> updateemployee(@PathVariable("id") long id
-            ,@RequestBody employee employee){
-        return new ResponseEntity<employee>(employeeService.updateemployee(employee, id), HttpStatus.OK);
+            ,@RequestBody employeeDTO employeeDTO){
+        return new ResponseEntity<employee>(employeeService.updateemployee(employeeDTO, id), HttpStatus.OK);
     }
 
     // build delete employee REST API

@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.employeeChecklistDTO;
 import com.example.springboot.model.employeeChecklist;
 import com.example.springboot.service.employeeChecklistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class employeeChecklistController
 
     // build create employeeChecklist REST API
     @PostMapping()
-    public ResponseEntity<employeeChecklist> saveemployeeChecklist(@RequestBody employeeChecklist employeeChecklist){
-        return new ResponseEntity<employeeChecklist>(employeeChecklistService.saveemployeeChecklist(employeeChecklist), HttpStatus.CREATED);
+    public ResponseEntity<employeeChecklist> saveemployeeChecklist(@RequestBody employeeChecklistDTO employeeChecklistDTO){
+                return new ResponseEntity<employeeChecklist>(employeeChecklistService.saveemployeeChecklist(employeeChecklistDTO), HttpStatus.CREATED);
     }
 
     // build get all employeeChecklists REST API
@@ -38,8 +39,8 @@ public class employeeChecklistController
     // http://localhost:8080/api/employeeChecklists/1
     @PutMapping("{id}")
     public ResponseEntity<employeeChecklist> updateemployeeChecklist(@PathVariable("id") long id
-            ,@RequestBody employeeChecklist employeeChecklist){
-        return new ResponseEntity<employeeChecklist>(employeeChecklistService.updateemployeeChecklist(employeeChecklist, id), HttpStatus.OK);
+            ,@RequestBody employeeChecklistDTO employeeChecklistDTO){
+        return new ResponseEntity<employeeChecklist>(employeeChecklistService.updateemployeeChecklist(employeeChecklistDTO, id), HttpStatus.OK);
     }
 
     // build delete employeeChecklist REST API

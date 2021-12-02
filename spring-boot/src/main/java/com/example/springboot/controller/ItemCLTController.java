@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.ItemCLTDTO;
 import com.example.springboot.model.ItemCLT;
 import com.example.springboot.service.ItemCLTService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class ItemCLTController {
 
     // build create ItemCLT REST API
     @PostMapping()
-    public ResponseEntity<ItemCLT> saveItemCLT(@RequestBody ItemCLT ItemCLT){
-        return new ResponseEntity<ItemCLT>(ItemCLTService.saveItemCLT(ItemCLT), HttpStatus.CREATED);
+    public ResponseEntity<ItemCLT> saveItemCLT(@RequestBody ItemCLTDTO ItemCLTDTO){
+        return new ResponseEntity<ItemCLT>(ItemCLTService.saveItemCLT(ItemCLTDTO), HttpStatus.CREATED);
     }
 
     // build get all ItemCLT REST API

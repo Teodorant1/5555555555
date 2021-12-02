@@ -18,13 +18,13 @@ public class ItemCLT {
     private String description;
 
     //this is a foreign key
-    @ManyToOne
-    @JoinTable(name = "CLT", joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"))
+    @OneToOne
+    @JoinColumn(name = "id")
     private CLT cltid;
 
     //this is a foreign key
-    @ManyToOne
-    @JoinTable(name = "timeframe", joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"))
+    @OneToOne
+    @JoinColumn(name = "id")
     private timeframe timeframeid;
 
     @Column(name = "active", nullable = false)
@@ -36,8 +36,6 @@ public class ItemCLT {
     public ItemCLT(ItemCLTDTO dto) {
         this.id = dto.getId();
         this.description = dto.getDescription();
-        this.cltid = dto.getCltid();
-        this.timeframeid = dto.getTimeframeid();
         this.active = dto.getActive();
     }
 

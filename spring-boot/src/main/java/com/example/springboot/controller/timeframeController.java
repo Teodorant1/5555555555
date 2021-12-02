@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.timeframeDTO;
 import com.example.springboot.model.timeframe;
 import com.example.springboot.service.timeframeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,9 @@ public class timeframeController {
 
     // build create timeframe REST API
     @PostMapping()
-    public ResponseEntity<timeframe> savetimeframe(@RequestBody timeframe timeframe){
-        return new ResponseEntity<timeframe>(timeframeService.savetimeframe(timeframe), HttpStatus.CREATED);
+    public ResponseEntity<timeframe> savetimeframe(@RequestBody timeframeDTO timeframeDTO){
+        return new ResponseEntity<timeframe>
+                (timeframeService.savetimeframe(timeframeDTO), HttpStatus.CREATED);
     }
 
     // build get all timeframe REST API
@@ -39,8 +41,9 @@ public class timeframeController {
     // http://localhost:8080/api/timeframe/1
     @PutMapping("{id}")
     public ResponseEntity<timeframe> updatetimeframe(@PathVariable("id") long id
-            ,@RequestBody timeframe timeframe){
-        return new ResponseEntity<timeframe>(timeframeService.updatetimeframe(timeframe, id), HttpStatus.OK);
+            ,@RequestBody timeframeDTO timeframeDTO){
+                return new ResponseEntity<timeframe>
+                        (timeframeService.updatetimeframe(timeframeDTO, id), HttpStatus.OK);
     }
 
     // build delete timeframe REST API

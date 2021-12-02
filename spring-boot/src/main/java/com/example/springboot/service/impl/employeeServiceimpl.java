@@ -1,25 +1,25 @@
 package com.example.springboot.service.impl;
 
+import com.example.springboot.dto.employeeDTO;
 import com.example.springboot.exception.ResourceNotFoundException;
 import com.example.springboot.model.employee;
 
 import com.example.springboot.repository.employeeRepository;
 import com.example.springboot.service.employeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class employeeServiceimpl implements employeeService {
 
     @Autowired
     private employeeRepository employeeRepository;
-    public employeeServiceimpl(employeeRepository employeeRepository)
-    { super();
-    this.employeeRepository=employeeRepository;
-    }
+
 
     @Override
-    public employee saveemployee(employee employee) {
+    public employee saveemployee(employeeDTO employee1) {
+        employee employee = new employee(employee1);
         return employeeRepository.save(employee);
     }
 
@@ -35,15 +35,20 @@ public class employeeServiceimpl implements employeeService {
     }
 
     @Override
-    public employee updateemployee(employee employee, long id) {
-       employee existingemployee = employeeRepository.findById(id).orElseThrow(
+    public employee updateemployee(employeeDTO employeeDTO, long id) {
+        employee existingemployee = employeeRepository.findById(id).orElseThrow(
                 ()-> new ResourceNotFoundException("employee","id",id));
-        existingemployee.setFirstname(employee.getFirstname());
-        existingemployee.setLastname(employee.getLastname());
-        existingemployee.setEmail(employee.getEmail());
-        existingemployee.setSSNUMBER(employee.getSSNUMBER());
-        existingemployee.setEducation(employee.getEducation());
-        return existingemployee;
+        existingemployee.setFirstname(employeeDTO.getFirstname());
+        existingemployee.setLastname(employeeDTO.getLastname());
+        existingemployee.setEmail(employeeDTO.getEmail());
+        existingemployee.setSSNUMBER(employeeDTO.getSSNUMBER());
+        existingemployee.setEducation(employeeDTO.getEducation());
+        employeeRepository.save(existingemployee);
+        return existingemployee;}
+
+
+    public employee updateemployee(employee employee, long id) {
+       return employee;
     }
 
     @Override

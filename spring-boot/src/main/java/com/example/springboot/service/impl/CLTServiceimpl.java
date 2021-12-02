@@ -1,5 +1,6 @@
 package com.example.springboot.service.impl;
 
+import com.example.springboot.dto.CLTDTO;
 import com.example.springboot.exception.ResourceNotFoundException;
 import com.example.springboot.model.CLT;
 import com.example.springboot.repository.CLTRepository;
@@ -13,15 +14,18 @@ import java.util.List;
 public class CLTServiceimpl implements CLTService {
     @Autowired
     private CLTRepository CLTRepository;
-    public CLTServiceimpl (CLTRepository cltRepository)
-    {super();
-    this.CLTRepository=cltRepository;}
+
 
 
     @Override
-    public CLT saveCLT(CLT clt) {
-        return CLTRepository.save(clt);
+    public CLT saveCLT(CLTDTO cltDTO) {
+        CLT CLT = new CLT (cltDTO );
+        CLTRepository.save(CLT);
+        return CLT;
+
     }
+
+
 
     @Override
     public List<CLT> getAllCLTs() {

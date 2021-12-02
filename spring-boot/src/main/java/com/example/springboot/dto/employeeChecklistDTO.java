@@ -1,32 +1,31 @@
 package com.example.springboot.dto;
 
-import com.example.springboot.model.CLT;
-import com.example.springboot.model.employee;
 
 public class employeeChecklistDTO {
 
 
+
     private long id;
-    private employee employeeid;
+    private long employeeid;
     private String isChecked;
     private String description;
     private String timedropdown;
-    private CLT clt;
+    private long cltid;
 
-    public employeeChecklistDTO(long id, employee employeeid, String isChecked, String description, String timedropdown, CLT clt) {
+    public employeeChecklistDTO(long id, long employeeid, String isChecked, String description, String timedropdown, long clt) {
         this.id = id;
         this.employeeid = employeeid;
         this.isChecked = isChecked;
         this.description = description;
         this.timedropdown = timedropdown;
-        this.clt= clt;
+        this.cltid = clt;
     }
-    public CLT getClt() {
-        return clt;
+    public long getCltid() {
+        return cltid;
     }
 
-    public void setClt(CLT clt) {
-        this.clt = clt;
+    public void setCltid(long cltid) {
+        this.cltid = cltid;
     }
     public long getId() {
         return id;
@@ -36,11 +35,11 @@ public class employeeChecklistDTO {
         this.id = id;
     }
 
-    public employee getEmployeeid() {
+    public long getEmployeeid() {
         return employeeid;
     }
 
-    public void setEmployeeid(employee employeeid) {
+    public void setEmployeeid(long employeeid) {
         this.employeeid = employeeid;
     }
 

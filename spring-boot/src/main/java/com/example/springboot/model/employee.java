@@ -6,7 +6,7 @@ import com.example.springboot.dto.employeeDTO;
 import javax.persistence.*;
 
 @Entity
-@Table(name="employee")
+@Table(name="employeetable")
 public class employee {
     public employee(){}
     public employee(long id, String firstname, String lastname, String email, long SSNUMBER, long phonenumber, String education) {
@@ -32,7 +32,7 @@ public class employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "first name", nullable = false)
+    @Column(name = "firstname", nullable = false)
     private String firstname;
     @Column(name = "lastname", nullable = false)
     private String lastname;

@@ -14,11 +14,11 @@ public class CLT {
 
     @Column(name = "description", nullable = false)
     private String description;
-
-
-
     @Column(name = "type", nullable = false)
     private String type;
+
+
+
     public CLT(){}
     public CLT(long id, String description, String type) {
         this.id = id;

@@ -6,14 +6,14 @@ import com.example.springboot.model.timeframe;
 public class ItemCLTDTO {
     private long id;
     private String description;
-    private CLT cltid;
-    private timeframe timeframeid;
+    private long cltid;
+    private long timeframeid;
     private String active;
     public long getId() {
         return id;
     }
 
-    public ItemCLTDTO(long id, String description, CLT cltid, timeframe timeframeid, String active) {
+    public ItemCLTDTO(long id, String description, long cltid, long timeframeid, String active) {
         this.id = id;
         this.description = description;
         this.cltid = cltid;
@@ -37,19 +37,19 @@ public class ItemCLTDTO {
         this.description = description;
     }
 
-    public CLT getCltid() {
+    public long getCltid() {
         return cltid;
     }
 
-    public void setCltid(CLT cltid) {
+    public void setCltid(long cltid) {
         this.cltid = cltid;
     }
 
-    public timeframe getTimeframeid() {
+    public long getTimeframeid() {
         return timeframeid;
     }
 
-    public void setTimeframeid(timeframe timeframeid) {
+    public void setTimeframeid(long timeframeid) {
         this.timeframeid = timeframeid;
     }
 

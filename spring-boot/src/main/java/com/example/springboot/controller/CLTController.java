@@ -1,5 +1,6 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.dto.CLTDTO;
 import com.example.springboot.model.CLT;
 import com.example.springboot.service.CLTService;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,10 @@ public class CLTController {
     }
     // build create CLT REST API
     @PostMapping()
-    public ResponseEntity<CLT> saveCLT(@RequestBody CLT CLT){
-        return new ResponseEntity<CLT>(CLTService.saveCLT(CLT), HttpStatus.CREATED);
+    public ResponseEntity<CLT> saveCLT(@RequestBody CLTDTO CLTDTO){
+          CLT CLT = new CLT(CLTDTO);
+        return  new ResponseEntity<CLT>(CLTService.saveCLT(CLTDTO), HttpStatus.CREATED);
+
     }
 
     // build get all CLT REST API
